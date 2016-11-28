@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="using:Carcassonne.Views"
+                    xmlns:vm="using:Carcassonne.ViewModels">
+
+    <DataTemplate x:Key="GameViewModelTemplate">
+        <local:GamePage/>
+    </DataTemplate>
+</ResourceDictionary>

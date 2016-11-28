@@ -1,0 +1,49 @@
+<UserControl x:Class="Carcassonne.Views.GamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Behaviors="using:Template10.Behaviors"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:Carcassonne.Views"
+      xmlns:helpers="using:Carcassonne.Helpers"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:Carcassonne.ViewModels"
+      mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <helpers:BooleanToVisibilityConverter x:Key="TrueToVisibleConverter" />
+        <helpers:BooleanToVisibilityConverter x:Key="FalseToVisibleConverter" IsReversed="True" />
+    </UserControl.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Viewbox x:Name="BlocksViewBox" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ItemsControl ItemsSource="{Binding Path=Blocks}"
+                          x:Name="ItemsControl">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Width="240" Height="240" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Height="{Binding Path=Height}"
+                                   Width="{Binding Path=Width}"
+                                   Stroke="DarkBlue"
+                                   StrokeThickness="0.1"
+                                   Fill="Blue" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="helpers:BindingHelper.CanvasLeftBindingPath"
+                                Value="Left" />
+                        <Setter Property="helpers:BindingHelper.CanvasTopBindingPath"
+                                Value="Top" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
+        </Viewbox>
+    </Grid>
+</UserControl>
