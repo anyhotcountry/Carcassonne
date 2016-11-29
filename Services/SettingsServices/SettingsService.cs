@@ -7,13 +7,15 @@ namespace Carcassonne.Services.SettingsServices
     public partial class SettingsService : ISettingsService
     {
         public static SettingsService Instance { get; }
+
         static SettingsService()
         {
             // implement singleton pattern
             Instance = Instance ?? new SettingsService();
         }
 
-        readonly Template10.Services.SettingsService.ISettingsHelper _helper;
+        private readonly Template10.Services.SettingsService.ISettingsHelper _helper;
+
         private SettingsService()
         {
             _helper = new Template10.Services.SettingsService.SettingsHelper();
@@ -55,4 +57,3 @@ namespace Carcassonne.Services.SettingsServices
         }
     }
 }
-

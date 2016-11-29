@@ -26,4 +26,3 @@ namespace Carcassonne.Services.SettingsServices
         }
     }
 }
-
