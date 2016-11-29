@@ -77,16 +77,16 @@ namespace Carcassonne.ViewModels
 
         private async Task ShowQuestion()
         {
-            var blockCount = 12;
-            var width = 10;
+            var blockCount = 6;
+            var width = 20;
             for (int i = 0; i < blockCount; i++)
             {
                 for (int j = -i - 1; j <= i; j++)
                 {
-                    Blocks.Add(new BlockViewModel((blockCount + i) * width, (blockCount + j) * width, width, width));
-                    Blocks.Add(new BlockViewModel((blockCount - i - 1) * width, (blockCount + j) * width, width, width));
-                    Blocks.Add(new BlockViewModel((blockCount + j) * width, (blockCount + i) * width, width, width));
-                    Blocks.Add(new BlockViewModel((blockCount + j) * width, (blockCount - i - 1) * width, width, width));
+                    Blocks.Add(new BlockViewModel((blockCount + i) * width, (blockCount + j) * width, width, width, SideType.City, SideType.Field, SideType.Field, SideType.Field));
+                    Blocks.Add(new BlockViewModel((blockCount - i - 1) * width, (blockCount + j) * width, width, width, SideType.Field, SideType.Field, SideType.Field, SideType.Road));
+                    Blocks.Add(new BlockViewModel((blockCount + j) * width, (blockCount + i) * width, width, width, SideType.Field, SideType.Field, SideType.River, SideType.River));
+                    Blocks.Add(new BlockViewModel((blockCount + j) * width, (blockCount - i - 1) * width, width, width, SideType.City, SideType.Field, SideType.City, SideType.Field));
                 }
             }
 
