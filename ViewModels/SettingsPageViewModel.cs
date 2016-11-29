@@ -11,7 +11,7 @@ namespace Carcassonne.ViewModels
 
     public class SettingsPartViewModel : Mvvm.ViewModelBase
     {
-        readonly Services.SettingsServices.SettingsService _settings;
+        private readonly Services.SettingsServices.SettingsService _settings;
 
         public SettingsPartViewModel()
         {
@@ -40,6 +40,7 @@ namespace Carcassonne.ViewModels
         }
 
         private string _BusyText = "Please wait...";
+
         public string BusyText
         {
             get { return _BusyText; }
@@ -67,4 +68,3 @@ namespace Carcassonne.ViewModels
         public Uri RateMe => new Uri("http://bing.com");
     }
 }
-

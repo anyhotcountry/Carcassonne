@@ -4,6 +4,6 @@
                     xmlns:vm="using:Carcassonne.ViewModels">
 
     <DataTemplate x:Key="GameViewModelTemplate">
-        <local:GamePage/>
+        <local:GamePage />
     </DataTemplate>
 </ResourceDictionary>

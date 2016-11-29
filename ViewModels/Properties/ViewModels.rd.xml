@@ -28,6 +28,5 @@
   <Library Name="ViewModels">
 
   	<!-- add directives for your library here -->
-
   </Library>
 </Directives>

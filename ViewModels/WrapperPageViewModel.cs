@@ -1,9 +1,6 @@
 using Carcassonne.Services;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
-using Windows.Storage;
 using Windows.UI.Core;
 
 namespace Carcassonne.ViewModels

@@ -2,7 +2,6 @@ using Carcassonne.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
 

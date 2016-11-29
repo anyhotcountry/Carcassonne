@@ -22,6 +22,7 @@ namespace Carcassonne.Views
 
         public bool IsBusy { get; set; } = false;
         public string BusyText { get; set; } = "Please wait...";
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static void SetBusy(bool busy)
@@ -47,4 +48,3 @@ namespace Carcassonne.Views
         }
     }
 }
-

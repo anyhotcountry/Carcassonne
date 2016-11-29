@@ -40,7 +40,6 @@
                 <Setter Property="GrabberBrush" Value="{StaticResource CustomColorBrush}" />
                 <Setter Property="GrabberVisibility" Value="Visible" />
             </Style>
-
         </ResourceDictionary>
 
         <!--  RequestedTheme=Light  -->
@@ -70,7 +69,6 @@
                 <Setter Property="GrabberBrush" Value="{StaticResource CustomColorBrush}" />
                 <Setter Property="GrabberVisibility" Value="Visible" />
             </Style>
-
         </ResourceDictionary>
 
         <!--  RequestedTheme=HighContrast  -->
@@ -107,8 +105,6 @@
                 <Setter Property="GrabberBrush" Value="White" />
                 <Setter Property="GrabberVisibility" Value="Visible" />
             </Style>
-
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>
-

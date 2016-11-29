@@ -35,4 +35,3 @@ namespace Carcassonne.Views
         }
     }
 }
-
