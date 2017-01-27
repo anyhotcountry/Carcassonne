@@ -7,23 +7,28 @@ namespace Carcassonne.ViewModels
 {
     public class WrapperPageViewModel : Mvvm.ViewModelBase
     {
-        private readonly IQuestionsService questionsService;
         private readonly List<string> questions;
         private readonly CoreDispatcher dispatcher;
         private readonly bool isPreview;
         private int questionIndex;
-        private IQuestionViewModel currentViewModel;
+        private GameViewModel currentViewModel;
         private bool stopped = true;
+        private ITilesService tilesService;
 
-        public WrapperPageViewModel(IQuestionsService questionsService, bool isPreview)
+        public WrapperPageViewModel(ITilesService tilesService)
         {
-            this.questionsService = questionsService;
+            this.tilesService = tilesService;
             this.isPreview = isPreview;
             dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
-            CurrentViewModel = new GameViewModel(questionsService);
+            CurrentViewModel = new GameViewModel(tilesService);
         }
 
-        public IQuestionViewModel CurrentViewModel
+        public async Task Start()
+        {
+            await currentViewModel.Start();
+        }
+
+        public GameViewModel CurrentViewModel
         {
             get { return currentViewModel; }
 
@@ -32,11 +37,6 @@ namespace Carcassonne.ViewModels
 
         public void OnUnLoaded()
         {
-        }
-
-        public async Task Start()
-        {
-            CurrentViewModel?.Start();
         }
 
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)

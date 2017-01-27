@@ -10,40 +10,45 @@
       xmlns:helpers="using:Carcassonne.Helpers"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Carcassonne.ViewModels"
+      xmlns:services="using:Carcassonne.Services"
       mc:Ignorable="d">
 
     <UserControl.Resources>
         <helpers:BooleanToVisibilityConverter x:Key="TrueToVisibleConverter" />
         <helpers:BooleanToVisibilityConverter x:Key="FalseToVisibleConverter" IsReversed="True" />
+        <helpers:PositionConverter x:Key="PositionConverter" />
+        <helpers:RotationConverter x:Key="RotationConverter" />
     </UserControl.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Viewbox x:Name="BlocksViewBox" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <ItemsControl ItemsSource="{Binding Path=Blocks}"
+        <ScrollViewer x:Name="BlocksViewBox" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All">
+            <ItemsControl ItemsSource="{Binding Path=Tiles}"
                           x:Name="ItemsControl">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <Canvas Width="240" Height="240" />
+                        <Canvas Width="1000" Height="1000" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Rectangle Height="{Binding Path=Height}"
-                                   Width="{Binding Path=Width}"
-                                   Stroke="DarkBlue"
-                                   StrokeThickness="0.1"
-                                   Fill="Blue" />
+                    <DataTemplate x:DataType="vm:TileViewModel">
+                        <Image Height="50"
+                                   Width="50"
+                                   Source="{x:Bind Path=ImageSource}" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="{x:Bind Path=Rotation, Converter={StaticResource RotationConverter}}" />
+                            </Image.RenderTransform>
+                        </Image>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemContainerStyle>
                     <Style TargetType="ContentPresenter">
                         <Setter Property="helpers:BindingHelper.CanvasLeftBindingPath"
-                                Value="Left" />
+                                Value="X" />
                         <Setter Property="helpers:BindingHelper.CanvasTopBindingPath"
-                                Value="Top" />
+                                Value="Y" />
                     </Style>
                 </ItemsControl.ItemContainerStyle>
             </ItemsControl>
-        </Viewbox>
+        </ScrollViewer>
     </Grid>
 </UserControl>

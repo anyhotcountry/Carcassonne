@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\Vi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{281B61AB-35BB-4857-800E-7340792C7F96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "Services.Tests\Services.Tests.csproj", "{E0EBC363-7186-45E1-9AF6-1BB4F688B295}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,26 @@ Global
 		{281B61AB-35BB-4857-800E-7340792C7F96}.Release|x64.Build.0 = Release|x64
 		{281B61AB-35BB-4857-800E-7340792C7F96}.Release|x86.ActiveCfg = Release|x86
 		{281B61AB-35BB-4857-800E-7340792C7F96}.Release|x86.Build.0 = Release|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|ARM.Build.0 = Debug|ARM
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|ARM.Deploy.0 = Debug|ARM
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|x64.ActiveCfg = Debug|x64
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|x64.Build.0 = Debug|x64
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|x64.Deploy.0 = Debug|x64
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|x86.ActiveCfg = Debug|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|x86.Build.0 = Debug|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Debug|x86.Deploy.0 = Debug|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|Any CPU.ActiveCfg = Release|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|ARM.ActiveCfg = Release|ARM
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|ARM.Build.0 = Release|ARM
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|ARM.Deploy.0 = Release|ARM
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|x64.ActiveCfg = Release|x64
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|x64.Build.0 = Release|x64
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|x64.Deploy.0 = Release|x64
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|x86.ActiveCfg = Release|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|x86.Build.0 = Release|x86
+		{E0EBC363-7186-45E1-9AF6-1BB4F688B295}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,96 +1,52 @@
 using Carcassonne.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace Carcassonne.ViewModels
 {
-    public class GameViewModel : Mvvm.ViewModelBase, IQuestionViewModel
+    public class GameViewModel : Mvvm.ViewModelBase
     {
         private readonly DispatcherTimer gameTimer;
         private readonly Random random;
-        private readonly string filename;
-        private readonly IQuestionsService questionsService;
-        private readonly bool isPreview;
-        private string answer;
-        private BitmapImage imageSource;
-        private bool isCollapsed = true;
-        private int questionIndex = 1;
-        private double takeCount;
-        private bool stopped;
+        private readonly ITilesService tilesService;
 
-        public event EventHandler QuestionFinished;
-
-        public GameViewModel(IQuestionsService questionsService)
+        public GameViewModel(ITilesService tilesService)
         {
             random = new Random();
-            this.questionsService = questionsService;
-            gameTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
-            gameTimer.Tick += (s, e) => GameTimerOnTick();
-            ShowQuestion();
-            gameTimer.Start();
+            this.tilesService = tilesService;
+            gameTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
+            gameTimer.Tick += GameTimerOnTick;
         }
 
-        public ObservableCollection<BlockViewModel> Blocks { get; } = new ObservableCollection<BlockViewModel>();
+        public ObservableCollection<TileViewModel> Tiles { get; } = new ObservableCollection<TileViewModel>();
 
-        public void Stop()
-        {
-            stopped = true;
-        }
-
-        public void Start()
-        {
-            stopped = false;
-            gameTimer.Start();
-        }
-
-        public void End()
-        {
-            Blocks.Clear();
-        }
-
-        private async Task GameTimerOnTick()
+        private void GameTimerOnTick(object sender, object e)
         {
             gameTimer.Stop();
-            if (stopped)
+            var tile = tilesService.NextTile();
+            if (tile == null)
             {
                 return;
             }
 
-            for (int i = 0; i < (int)takeCount; i++)
+            var possibilities = tilesService.GetPossibilities(tile).ToList();
+            var possibility = possibilities.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+            if (possibility != null)
             {
-                if (Blocks.Count != 0)
-                {
-                    var index = random.Next(Blocks.Count);
-                    Blocks.RemoveAt(Blocks.Count - 1);
-                }
+                tilesService.PlaceTile(tile, possibility);
+                Tiles.Add(new TileViewModel(50 * tile.X + 500, 500 - 50 * tile.Y, tile.Rotation, tile.ImageSource));
             }
 
-            if (Blocks.Count > 0)
-            {
-                takeCount += 0.02;
-                gameTimer.Start();
-            }
+            gameTimer.Start();
         }
 
-        private async Task ShowQuestion()
+        public async Task Start()
         {
-            var blockCount = 6;
-            var width = 20;
-            for (int i = 0; i < blockCount; i++)
-            {
-                for (int j = -i - 1; j <= i; j++)
-                {
-                    Blocks.Add(new BlockViewModel((blockCount + i) * width, (blockCount + j) * width, width, width, SideType.City, SideType.Field, SideType.Field, SideType.Field));
-                    Blocks.Add(new BlockViewModel((blockCount - i - 1) * width, (blockCount + j) * width, width, width, SideType.Field, SideType.Field, SideType.Field, SideType.Road));
-                    Blocks.Add(new BlockViewModel((blockCount + j) * width, (blockCount + i) * width, width, width, SideType.Field, SideType.Field, SideType.River, SideType.River));
-                    Blocks.Add(new BlockViewModel((blockCount + j) * width, (blockCount - i - 1) * width, width, width, SideType.City, SideType.Field, SideType.City, SideType.Field));
-                }
-            }
-
-            takeCount = 1;
+            await tilesService.LoadTiles();
+            gameTimer.Start();
         }
     }
 }

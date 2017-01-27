@@ -1,5 +1,6 @@
 ﻿using Carcassonne.Services;
 using Carcassonne.ViewModels;
+using System;
 
 namespace Carcassonne
 {
@@ -9,7 +10,7 @@ namespace Carcassonne
         {
             get
             {
-                return new WrapperPageViewModel(new QuestionsService(), false);
+                return new WrapperPageViewModel(new TilesService(new Uri("ms-appx:///Assets/Tiles/")));
             }
         }
     }

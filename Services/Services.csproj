@@ -7,11 +7,11 @@
     <ProjectGuid>{281B61AB-35BB-4857-800E-7340792C7F96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuizApp.Services</RootNamespace>
-    <AssemblyName>QuizApp.Services</AssemblyName>
+    <RootNamespace>Carcassonne.Services</RootNamespace>
+    <AssemblyName>Carcassonne.Services</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -107,12 +107,18 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IQuestionsService.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="EdgeTypes.cs" />
+    <Compile Include="FitProperties.cs" />
+    <Compile Include="ITilesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionsService.cs" />
+    <Compile Include="Rotation.cs" />
     <Compile Include="SettingsServices\ISettingsService.cs" />
     <Compile Include="SettingsServices\SettingsService.Apply.cs" />
     <Compile Include="SettingsServices\SettingsService.cs" />
+    <Compile Include="Space.cs" />
+    <Compile Include="Tile.cs" />
+    <Compile Include="TilesService.cs" />
     <Content Include="Properties\Services.rd.xml" />
   </ItemGroup>
   <ItemGroup>
