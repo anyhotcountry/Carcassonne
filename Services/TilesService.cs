@@ -16,6 +16,7 @@ namespace Carcassonne.Services
             ['c'] = EdgeTypes.City,
             ['f'] = EdgeTypes.Field,
             ['r'] = EdgeTypes.Road,
+            ['w'] = EdgeTypes.Water,
         };
 
         private readonly Uri baseUri;

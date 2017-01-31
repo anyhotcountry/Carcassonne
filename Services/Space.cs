@@ -28,7 +28,22 @@ namespace Carcassonne.Services
                                 (WestTile == null || tile.GetEdge(Direction.West, rotation) == WestTile.GetEdge(Direction.East));
                 if (canFit)
                 {
-                    yield return new FitProperties { Rotation = rotation, Score = 1, X = X, Y = Y };
+                    var score = 0;
+                    score += NorthTile != null ? 1 : 0;
+                    score += EastTile != null ? 1 : 0;
+                    score += SouthTile != null ? 1 : 0;
+                    score += WestTile != null ? 1 : 0;
+
+                    score += NorthTile != null && tile.GetEdge(Direction.North, rotation) == EdgeTypes.Road ? 1 : 0;
+                    score += EastTile != null && tile.GetEdge(Direction.East, rotation) == EdgeTypes.Road ? 1 : 0;
+                    score += SouthTile != null && tile.GetEdge(Direction.South, rotation) == EdgeTypes.Road ? 1 : 0;
+                    score += WestTile != null && tile.GetEdge(Direction.West, rotation) == EdgeTypes.Road ? 1 : 0;
+
+                    score += NorthTile != null && tile.GetEdge(Direction.North, rotation) == EdgeTypes.City ? 2 : 0;
+                    score += EastTile != null && tile.GetEdge(Direction.East, rotation) == EdgeTypes.City ? 2 : 0;
+                    score += SouthTile != null && tile.GetEdge(Direction.South, rotation) == EdgeTypes.City ? 2 : 0;
+                    score += WestTile != null && tile.GetEdge(Direction.West, rotation) == EdgeTypes.City ? 2 : 0;
+                    yield return new FitProperties { Rotation = rotation, Score = score, X = X, Y = Y };
                 }
             }
         }

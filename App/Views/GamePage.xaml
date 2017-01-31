@@ -21,8 +21,15 @@
     </UserControl.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ScrollViewer x:Name="BlocksViewBox" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All">
-            <ItemsControl ItemsSource="{Binding Path=Tiles}"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Column="0" Grid.Row="0" x:Name="BlocksViewBox" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+            <ItemsControl ItemsSource="{x:Bind Path=ViewModel.Tiles}"
                           x:Name="ItemsControl">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -50,5 +57,11 @@
                 </ItemsControl.ItemContainerStyle>
             </ItemsControl>
         </ScrollViewer>
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <Button Click="{x:Bind Path=ViewModel.PlaceTile}">
+                <Image Height="100" Width="100" Source="{x:Bind Path=ViewModel.NextTile.ImageSource, Mode=OneWay}" Stretch="Fill" />
+            </Button>
+            <Rectangle Height="100" Width="100" Fill="#FF142C6E" Margin="0,25,0,0" />
+        </StackPanel>
     </Grid>
 </UserControl>

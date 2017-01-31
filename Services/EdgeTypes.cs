@@ -4,6 +4,7 @@
     {
         City,
         Road,
-        Field
+        Field,
+        Water
     }
 }

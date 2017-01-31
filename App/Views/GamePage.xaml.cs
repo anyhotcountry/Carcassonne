@@ -1,3 +1,4 @@
+using Carcassonne.ViewModels;
 using Windows.UI.Xaml.Controls;
 
 namespace Carcassonne.Views
@@ -8,5 +9,7 @@ namespace Carcassonne.Views
         {
             InitializeComponent();
         }
+
+        public GameViewModel ViewModel => (DataContext as GameViewModel);
     }
 }
