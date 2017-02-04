@@ -43,7 +43,7 @@ namespace Carcassonne.Services
                     score += EastTile != null && tile.GetEdge(Direction.East, rotation) == EdgeTypes.City ? 2 : 0;
                     score += SouthTile != null && tile.GetEdge(Direction.South, rotation) == EdgeTypes.City ? 2 : 0;
                     score += WestTile != null && tile.GetEdge(Direction.West, rotation) == EdgeTypes.City ? 2 : 0;
-                    yield return new FitProperties { Rotation = rotation, Score = score, X = X, Y = Y };
+                    yield return new FitProperties { Rotation = rotation, Score = score, Point = new Point(X, Y) };
                 }
             }
         }

@@ -1,4 +1,5 @@
 using Carcassonne.ViewModels;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Carcassonne.Views
@@ -11,5 +12,14 @@ namespace Carcassonne.Views
         }
 
         public GameViewModel ViewModel => (DataContext as GameViewModel);
+
+        public void GamePageOnDrag(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = Windows.ApplicationModel.DataTransfer.DataPackageOperation.Copy;
+        }
+
+        private void Rectangle_Drop(object sender, DragEventArgs e)
+        {
+        }
     }
 }

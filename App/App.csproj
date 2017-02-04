@@ -134,20 +134,18 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\tick.png" />
     <Content Include="Assets\Tiles\01cccc10.png" />
     <Content Include="Assets\Tiles\01ccfc10.png" />
     <Content Include="Assets\Tiles\01ccrc00.png" />
     <Content Include="Assets\Tiles\01ccrc10.png" />
     <Content Include="Assets\Tiles\01fcfc00.png" />
     <Content Include="Assets\Tiles\01rrrr00.png" />
-    <Content Include="Assets\Tiles\15wwww00.png" />
     <Content Include="Assets\Tiles\02cffc00.png" />
     <Content Include="Assets\Tiles\02cffc10.png" />
     <Content Include="Assets\Tiles\02crrc10.png" />
     <Content Include="Assets\Tiles\02fcfc10.png" />
     <Content Include="Assets\Tiles\02ffrf01.png" />
-    <Content Include="Assets\Tiles\10fwfw00.png" />
-    <Content Include="Assets\Tiles\10wffw00.png" />
     <Content Include="Assets\Tiles\03ccfc00.png" />
     <Content Include="Assets\Tiles\03cfcf00.png" />
     <Content Include="Assets\Tiles\03cffc00.png" />
@@ -155,14 +153,13 @@
     <Content Include="Assets\Tiles\03crrc00.png" />
     <Content Include="Assets\Tiles\03crrf00.png" />
     <Content Include="Assets\Tiles\03crrr00.png" />
-    <Content Include="Assets\Tiles\11wffw00.png" />
-    <Content Include="Assets\Tiles\10wfwf00.png" />
     <Content Include="Assets\Tiles\04crfr00.png" />
     <Content Include="Assets\Tiles\04ffff01.png" />
     <Content Include="Assets\Tiles\04frrr00.png" />
     <Content Include="Assets\Tiles\05cfff00.png" />
     <Content Include="Assets\Tiles\08rfrf00.png" />
     <Content Include="Assets\Tiles\09ffrr00.png" />
+    <Content Include="Assets\TILE_BACK.png" />
     <Content Include="Help.htm" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

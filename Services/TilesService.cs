@@ -57,7 +57,7 @@ namespace Carcassonne.Services
         {
             if (tile == startTile)
             {
-                return new[] { new FitProperties { X = 0, Y = 0 } };
+                return new[] { new FitProperties { Point = new Point(0, 0) } };
             }
 
             return spaces.SelectMany(s => s.CanFit(tile));
@@ -65,33 +65,33 @@ namespace Carcassonne.Services
 
         public void PlaceTile(Tile tile, FitProperties properties)
         {
-            var spaceToRemove = spaces.FirstOrDefault(s => s.X == properties.X && s.Y == properties.Y);
+            var spaceToRemove = spaces.FirstOrDefault(s => s.X == properties.Point.X && s.Y == properties.Point.Y);
             var spacesAndTiles = spaces.Concat(playedTiles.Cast<Space>()).ToList();
-            var northSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.X && s.Y == properties.Y + 1);
-            var eastSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.X + 1 && s.Y == properties.Y);
-            var southSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.X && s.Y == properties.Y - 1);
-            var westSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.X - 1 && s.Y == properties.Y);
+            var northSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.Point.X && s.Y == properties.Point.Y + 1);
+            var eastSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.Point.X + 1 && s.Y == properties.Point.Y);
+            var southSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.Point.X && s.Y == properties.Point.Y - 1);
+            var westSpace = spacesAndTiles.FirstOrDefault(s => s.X == properties.Point.X - 1 && s.Y == properties.Point.Y);
             if (northSpace == null)
             {
-                northSpace = new Space { SouthTile = tile, X = properties.X, Y = properties.Y + 1 };
+                northSpace = new Space { SouthTile = tile, X = properties.Point.X, Y = properties.Point.Y + 1 };
                 spaces.Add(northSpace);
             }
 
             if (eastSpace == null)
             {
-                eastSpace = new Space { WestTile = tile, X = properties.X + 1, Y = properties.Y };
+                eastSpace = new Space { WestTile = tile, X = properties.Point.X + 1, Y = properties.Point.Y };
                 spaces.Add(eastSpace);
             }
 
             if (southSpace == null)
             {
-                southSpace = new Space { NorthTile = tile, X = properties.X, Y = properties.Y - 1 };
+                southSpace = new Space { NorthTile = tile, X = properties.Point.X, Y = properties.Point.Y - 1 };
                 spaces.Add(southSpace);
             }
 
             if (westSpace == null)
             {
-                westSpace = new Space { EastTile = tile, X = properties.X - 1, Y = properties.Y };
+                westSpace = new Space { EastTile = tile, X = properties.Point.X - 1, Y = properties.Point.Y };
                 spaces.Add(westSpace);
             }
 
@@ -101,8 +101,8 @@ namespace Carcassonne.Services
             westSpace.EastTile = tile;
 
             playedTiles.Add(tile);
-            tile.X = properties.X;
-            tile.Y = properties.Y;
+            tile.X = properties.Point.X;
+            tile.Y = properties.Point.Y;
             tile.Rotation = properties.Rotation;
 
             if (spaceToRemove != null)

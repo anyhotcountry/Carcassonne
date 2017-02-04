@@ -11,7 +11,7 @@ namespace Carcassonne.ViewModels
         private readonly ITilesService tilesService;
         private TileViewModel nextTileViewModel;
         private Tile tile;
-        private List<FitProperties> possibilities;
+        private FitProperties selectedPossibility;
 
         public GameViewModel(ITilesService tilesService)
         {
@@ -30,34 +30,53 @@ namespace Carcassonne.ViewModels
 
         public void PlaceTile()
         {
-            if (tile == null)
+            if (selectedPossibility == null)
             {
                 return;
             }
 
-            possibilities = tilesService.GetPossibilities(tile).ToList();
-            var possibility = possibilities.OrderByDescending(x => x.Score).FirstOrDefault();
-            if (possibility != null)
-            {
-                tilesService.PlaceTile(tile, possibility);
-                Tiles.Add(new TileViewModel(50 * tile.X + 500, 500 - 50 * tile.Y, tile.Rotation, tile.ImageUri));
-            }
-
-            tile = tilesService.NextTile();
-            NextTile = tile == null ? null : new TileViewModel(50 * tile.X + 500, 500 - 50 * tile.Y, tile.Rotation, tile.ImageUri);
+            tilesService.PlaceTile(tile, selectedPossibility);
+            Tiles.Add(new TileViewModel(100 * tile.X + 500, 500 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
+            NextTile = null;
+            Possibilities.Clear();
         }
 
         public async Task Start()
         {
             await tilesService.LoadTiles();
+        }
+
+        public void GetNextTile()
+        {
             tile = tilesService.NextTile();
-            possibilities = tilesService.GetPossibilities(tile).ToList();
-            foreach (var possibility in possibilities)
+            NextTile = tile == null ? null : new TileViewModel(100 * tile.X + 500, 500 - 100 * tile.Y, tile.Rotation, tile.ImageUri);
+            if (tile == null)
             {
-                Possibilities.Add(new TileViewModel(50 * possibility.X + 500, 500 - 50 * possibility.Y));
+                return;
             }
 
-            NextTile = new TileViewModel(50 * tile.X + 500, 500 - 50 * tile.Y, tile.Rotation, tile.ImageUri);
+            var possibilities = tilesService.GetPossibilities(tile).ToList();
+            foreach (var group in possibilities.GroupBy(x => x.Point))
+            {
+                var vm = new TileViewModel(100 * group.Key.X + 500, 500 - 100 * group.Key.Y);
+                vm.ClickCommand = new Template10.Mvvm.DelegateCommand(() => TryTile(group.ToList(), vm));
+                Possibilities.Add(vm);
+            }
+        }
+
+        private void TryTile(IList<FitProperties> possibilities, TileViewModel tileViewModel)
+        {
+            foreach (var possibility in Possibilities)
+            {
+                possibility.ImageSource = null;
+            }
+
+            tileViewModel.ImageSource = NextTile.ImageSource;
+            var previousPossibility = possibilities.FirstOrDefault(p => p.Rotation == tileViewModel.Rotation);
+            var index = previousPossibility == null ? 0 : possibilities.IndexOf(previousPossibility) + 1;
+            index = index >= possibilities.Count ? 0 : index;
+            selectedPossibility = possibilities[index];
+            tileViewModel.Rotation = selectedPossibility.Rotation;
         }
     }
 }
