@@ -18,7 +18,6 @@ namespace Carcassonne.ViewModels
         public WrapperPageViewModel(ITilesService tilesService)
         {
             this.tilesService = tilesService;
-            this.isPreview = isPreview;
             dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
             CurrentViewModel = new GameViewModel(tilesService);
         }

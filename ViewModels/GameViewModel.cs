@@ -30,14 +30,15 @@ namespace Carcassonne.ViewModels
 
         public void PlaceTile()
         {
-            if (selectedPossibility == null)
+            if (selectedPossibility == null || tile == null)
             {
                 return;
             }
 
             tilesService.PlaceTile(tile, selectedPossibility);
-            Tiles.Add(new TileViewModel(100 * tile.X + 500, 500 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
-            NextTile = null;
+            Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
+            NextTile.ImageSource = null;
+            tile = null;
             Possibilities.Clear();
         }
 
@@ -48,8 +49,13 @@ namespace Carcassonne.ViewModels
 
         public void GetNextTile()
         {
+            if (tile != null)
+            {
+                return;
+            }
+
             tile = tilesService.NextTile();
-            NextTile = tile == null ? null : new TileViewModel(100 * tile.X + 500, 500 - 100 * tile.Y, tile.Rotation, tile.ImageUri);
+            NextTile = tile == null ? null : new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, tile.Rotation, tile.ImageUri);
             if (tile == null)
             {
                 return;
@@ -58,7 +64,7 @@ namespace Carcassonne.ViewModels
             var possibilities = tilesService.GetPossibilities(tile).ToList();
             foreach (var group in possibilities.GroupBy(x => x.Point))
             {
-                var vm = new TileViewModel(100 * group.Key.X + 500, 500 - 100 * group.Key.Y);
+                var vm = new TileViewModel(100 * group.Key.X + 1000, 1000 - 100 * group.Key.Y);
                 vm.ClickCommand = new Template10.Mvvm.DelegateCommand(() => TryTile(group.ToList(), vm));
                 Possibilities.Add(vm);
             }

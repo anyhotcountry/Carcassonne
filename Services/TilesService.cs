@@ -57,7 +57,7 @@ namespace Carcassonne.Services
         {
             if (tile == startTile)
             {
-                return new[] { new FitProperties { Point = new Point(0, 0) } };
+                return Enum.GetValues(typeof(Rotation)).OfType<Rotation>().Select(r => new FitProperties { Point = new Point(0, 0), Rotation = r });
             }
 
             return spaces.SelectMany(s => s.CanFit(tile));

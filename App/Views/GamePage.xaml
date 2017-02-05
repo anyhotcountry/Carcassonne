@@ -28,7 +28,7 @@
         <Grid.RowDefinitions>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Column="0" Grid.Row="0" x:Name="BlocksViewBox" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <ScrollViewer Grid.Column="0" Grid.Row="0" x:Name="TilesScrollViewer" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
             <Grid>
                 <ItemsControl ItemsSource="{x:Bind Path=ViewModel.Tiles}"
                           x:Name="ItemsControl">
@@ -68,9 +68,7 @@
                         <DataTemplate x:DataType="vm:TileViewModel">
                             <Button Height="100" Width="100" FontSize="18" Foreground="Lime" Command="{x:Bind Path=ClickCommand}" BorderBrush="Lime" BorderThickness="2">
                                 <Grid>
-                                    <Image Height="100"
-                                   Width="100"
-                                   Source="{x:Bind Path=ImageSource, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
+                                    <Image Source="{x:Bind Path=ImageSource, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
                                         <Image.RenderTransform>
                                             <RotateTransform Angle="{x:Bind Path=Rotation, Mode=OneWay, Converter={StaticResource RotationConverter}}" />
                                         </Image.RenderTransform>
