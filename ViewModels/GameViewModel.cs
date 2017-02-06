@@ -39,12 +39,23 @@ namespace Carcassonne.ViewModels
             Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
             NextTile.ImageSource = null;
             tile = null;
+            selectedPossibility = null;
             Possibilities.Clear();
         }
 
         public async Task Start()
         {
             await tilesService.LoadTiles();
+        }
+
+        public async void ResetGame()
+        {
+            await tilesService.Reset();
+            Tiles.Clear();
+            Possibilities.Clear();
+            selectedPossibility = null;
+            tile = null;
+            NextTile.ImageSource = null;
         }
 
         public void GetNextTile()

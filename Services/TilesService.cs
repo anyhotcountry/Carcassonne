@@ -63,6 +63,14 @@ namespace Carcassonne.Services
             return spaces.SelectMany(s => s.CanFit(tile));
         }
 
+        public async Task Reset()
+        {
+            remainingTiles = remainingTiles.Concat(playedTiles).OrderBy(x => Guid.NewGuid()).ToList();
+            playedTiles.Clear();
+            spaces.Clear();
+            counter = -1;
+        }
+
         public void PlaceTile(Tile tile, FitProperties properties)
         {
             var spaceToRemove = spaces.FirstOrDefault(s => s.X == properties.Point.X && s.Y == properties.Point.Y);

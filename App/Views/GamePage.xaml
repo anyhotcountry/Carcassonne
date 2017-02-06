@@ -28,7 +28,7 @@
         <Grid.RowDefinitions>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Column="0" Grid.Row="0" x:Name="TilesScrollViewer" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <ScrollViewer Grid.Column="0" Grid.Row="0" x:Name="TilesScrollViewer" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" BringIntoViewOnFocusChange="True">
             <Grid>
                 <ItemsControl ItemsSource="{x:Bind Path=ViewModel.Tiles}"
                           x:Name="ItemsControl">
@@ -66,14 +66,14 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:TileViewModel">
-                            <Button Height="100" Width="100" FontSize="18" Foreground="Lime" Command="{x:Bind Path=ClickCommand}" BorderBrush="Lime" BorderThickness="2">
+                            <Button Height="100" Width="100" FontSize="18" Foreground="Blue" Command="{x:Bind Path=ClickCommand}" BorderBrush="Lime" BorderThickness="2">
                                 <Grid>
                                     <Image Source="{x:Bind Path=ImageSource, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
                                         <Image.RenderTransform>
                                             <RotateTransform Angle="{x:Bind Path=Rotation, Mode=OneWay, Converter={StaticResource RotationConverter}}" />
                                         </Image.RenderTransform>
                                     </Image>
-                                    <TextBlock Text="+"></TextBlock>
+                                    <TextBlock Text="{x:Bind Path=Text, Mode=OneWay}" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets"></TextBlock>
                                 </Grid>
                             </Button>
                         </DataTemplate>
@@ -93,10 +93,9 @@
             <Button Click="{x:Bind Path=ViewModel.GetNextTile}" BorderThickness="0">
                 <Image Height="100" Width="100" Source="../Assets/TILE_BACK.png" Stretch="Fill" />
             </Button>
-            <Image Name="NextTile" Height="100" Width="100" Source="{x:Bind Path=ViewModel.NextTile.ImageSource, Mode=OneWay}" Stretch="Fill" Margin="0,10,0,0" />
-            <Button Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0">
-                <Image Height="100" Width="100" Source="../Assets/tick.png" Stretch="UniformToFill" />
-            </Button>
+            <Image Name="NextTile" Height="100" Width="100" Source="{x:Bind Path=ViewModel.NextTile.ImageSource, Mode=OneWay}" Stretch="Fill" Margin="0,10,0,10" />
+            <Button Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0" Width="75" Height="75" Foreground="Green" Background="White" Content="&#xE73E;" FontSize="64" FontFamily="Segoe MDL2 Assets" />
+            <Button Name="ResetButton" Click="{x:Bind Path=ViewModel.ResetGame}" Margin="0,10,0,0" Content="&#xE72C;" Width="75" Height="75" FontSize="48" FontFamily="Segoe MDL2 Assets" />
         </StackPanel>
     </Grid>
 </UserControl>

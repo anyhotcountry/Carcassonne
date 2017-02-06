@@ -12,5 +12,7 @@ namespace Carcassonne.Services
         IEnumerable<FitProperties> GetPossibilities(Tile tile);
 
         Tile NextTile();
+
+        Task Reset();
     }
 }

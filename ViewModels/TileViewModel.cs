@@ -10,6 +10,7 @@ namespace Carcassonne.ViewModels
     {
         private ImageSource imageSource;
         private Rotation rotation;
+        private string text;
 
         public TileViewModel(double x, double y, Rotation rotation, Uri imageUri)
         {
@@ -23,14 +24,35 @@ namespace Carcassonne.ViewModels
         {
             X = x;
             Y = y;
+            Text = "\uE710";
         }
 
         public DelegateCommand ClickCommand { get; set; }
 
         public ImageSource ImageSource
         {
-            get { return imageSource; }
-            set { Set(ref imageSource, value); }
+            get
+            {
+                return imageSource;
+            }
+            set
+            {
+                Set(ref imageSource, value);
+                Text = imageSource == null ? "\uE710" : "\uE7AD";
+            }
+        }
+
+        public string Text
+        {
+            get
+            {
+                return text;
+            }
+
+            set
+            {
+                Set(ref text, value);
+            }
         }
 
         public double Y { get; set; }
