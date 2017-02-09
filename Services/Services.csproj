@@ -114,9 +114,6 @@
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rotation.cs" />
-    <Compile Include="SettingsServices\ISettingsService.cs" />
-    <Compile Include="SettingsServices\SettingsService.Apply.cs" />
-    <Compile Include="SettingsServices\SettingsService.cs" />
     <Compile Include="Space.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TilesService.cs" />

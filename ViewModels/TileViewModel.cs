@@ -1,6 +1,5 @@
 ﻿using Carcassonne.Services;
 using System;
-using Template10.Mvvm;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 

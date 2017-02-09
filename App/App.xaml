@@ -7,7 +7,6 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles\Custom.xaml" />
                 <ResourceDictionary Source="DataTemplates\Templates.xaml" />
                 <ResourceDictionary>
                     <local:ViewModelLocator x:Key="Locator" />

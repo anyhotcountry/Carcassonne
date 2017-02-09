@@ -1795,21 +1795,6 @@
             "rid": "win8-aot"
           }
         }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3458,21 +3443,6 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -5084,21 +5054,6 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
         }
       }
     },
@@ -6754,21 +6709,6 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -8380,21 +8320,6 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
         }
       }
     },
@@ -10050,21 +9975,6 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -11676,21 +11586,6 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "Template10/1.0.8": {
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        },
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
         }
       }
     }
@@ -15066,32 +14961,12 @@
         "runtime.json",
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
-    },
-    "Template10/1.0.8": {
-      "sha512": "v0bwy/MLGZ0dVNfEpkmOv24+ssb7Ux8vfD/mkdHyrDjo2F/Z9gtBxNY6ym4+XpC3QAXPCrsvSOvQaLHpn6aTuA==",
-      "type": "package",
-      "files": [
-        "Template10.1.0.8.nupkg.sha512",
-        "Template10.nuspec",
-        "build/uap10.0/Template10.targets",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
-        "lib/uap10.0/Template10Library.dll",
-        "lib/uap10.0/Template10Library.pri",
-        "lib/uap10.0/Template10Library/Controls/HamburgerMenu.xaml",
-        "lib/uap10.0/Template10Library/Converters/Themes/Generic.xaml",
-        "lib/uap10.0/Template10Library/Properties/Template10Library.rd.xml",
-        "lib/uap10.0/Template10Library/Styles/Mdl2.xaml",
-        "lib/uap10.0/Template10Library/Template10Library.xr.xml",
-        "lib/uap10.0/Template10Library/Themes/Generic.xaml"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "Newtonsoft.Json >= 7.0.1",
-      "Template10 >= 1.0.8"
+      "Newtonsoft.Json >= 7.0.1"
     ],
     "UAP,Version=v10.0": []
   }

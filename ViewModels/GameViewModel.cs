@@ -76,7 +76,7 @@ namespace Carcassonne.ViewModels
             foreach (var group in possibilities.GroupBy(x => x.Point))
             {
                 var vm = new TileViewModel(100 * group.Key.X + 1000, 1000 - 100 * group.Key.Y);
-                vm.ClickCommand = new Template10.Mvvm.DelegateCommand(() => TryTile(group.ToList(), vm));
+                vm.ClickCommand = new DelegateCommand(() => TryTile(group.ToList(), vm));
                 Possibilities.Add(vm);
             }
         }
