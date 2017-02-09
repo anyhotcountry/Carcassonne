@@ -7,10 +7,7 @@ namespace Carcassonne.ViewModels
 {
     public class WrapperPageViewModel : Mvvm.ViewModelBase
     {
-        private readonly List<string> questions;
         private readonly CoreDispatcher dispatcher;
-        private readonly bool isPreview;
-        private int questionIndex;
         private GameViewModel currentViewModel;
         private bool stopped = true;
         private ITilesService tilesService;

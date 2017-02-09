@@ -94,8 +94,8 @@
                 <Image Height="100" Width="100" Source="../Assets/TILE_BACK.png" Stretch="Fill" />
             </Button>
             <Image Name="NextTile" Height="100" Width="100" Source="{x:Bind Path=ViewModel.NextTile.ImageSource, Mode=OneWay}" Stretch="Fill" Margin="0,10,0,10" />
-            <Button Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0" Width="75" Height="75" Foreground="Green" Background="White" Content="&#xE73E;" FontSize="64" FontFamily="Segoe MDL2 Assets" />
-            <Button Name="ResetButton" Click="{x:Bind Path=ViewModel.ResetGame}" Margin="0,10,0,0" Content="&#xE72C;" Width="75" Height="75" FontSize="48" FontFamily="Segoe MDL2 Assets" />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0" Width="75" Height="75" Foreground="Green" Background="White" Content="&#xE73E;" FontSize="64" FontFamily="Segoe MDL2 Assets" />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Name="ResetButton" Click="{x:Bind Path=ViewModel.ResetGame}" Margin="0,10,0,0" Content="&#xE72C;" Width="75" Height="75" FontSize="48" FontFamily="Segoe MDL2 Assets" />
         </StackPanel>
     </Grid>
 </UserControl>
