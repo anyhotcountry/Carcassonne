@@ -1,5 +1,4 @@
 ﻿using System;
-using Template10.Common;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -19,7 +18,7 @@ namespace Carcassonne.Helpers
 
             try
             {
-                result = BootStrapper.Current.Resources[typeName + "Template"] as DataTemplate;
+                result = Application.Current.Resources[typeName + "Template"] as DataTemplate;
             }
             catch (Exception)
             {

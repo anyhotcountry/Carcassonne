@@ -1,8 +1,25 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace Carcassonne.Mvvm
 {
-    // DOCS: https://github.com/Windows-XAML/Template10/wiki/Docs-%7C-MVVM
-    public abstract class ViewModelBase : Template10.Mvvm.ViewModelBase
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        // the only thing that matters here is Template10.Services.NavigationService.INavagable
+        public virtual bool Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        {
+            if (object.Equals(storage, value))
+                return false;
+
+            storage = value;
+            this.RaisePropertyChanged(propertyName);
+            return true;
+        }
+
+        private void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

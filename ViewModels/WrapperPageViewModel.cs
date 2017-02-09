@@ -1,5 +1,4 @@
 using Carcassonne.Services;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Core;
 
@@ -33,12 +32,6 @@ namespace Carcassonne.ViewModels
 
         public void OnUnLoaded()
         {
-        }
-
-        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
-        {
-            OnUnLoaded();
-            return base.OnNavigatedFromAsync(state, suspending);
         }
     }
 }

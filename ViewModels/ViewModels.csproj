@@ -112,7 +112,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TileViewModel.cs" />
     <Compile Include="WrapperPageViewModel.cs" />
-    <Compile Include="SettingsPageViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Content Include="Properties\ViewModels.rd.xml" />
   </ItemGroup>
