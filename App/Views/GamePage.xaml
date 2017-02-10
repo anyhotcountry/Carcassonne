@@ -85,6 +85,31 @@
                         </Style>
                     </ItemsControl.ItemContainerStyle>
                 </ItemsControl>
+                <ItemsControl ItemsSource="{x:Bind Path=ViewModel.FollowerPossibilities}"
+                          x:Name="FollowerPossibilitiesItemsControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas Width="2000" Height="2000" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:TileViewModel">
+                            <Button BorderThickness="0" ClickMode="Press" Padding="0">
+                                <Viewbox MaxHeight="16" MaxWidth="16">
+                                    <SymbolIcon Symbol="Emoji" />
+                                </Viewbox>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="helpers:BindingHelper.CanvasLeftBindingPath"
+                                Value="X" />
+                            <Setter Property="helpers:BindingHelper.CanvasTopBindingPath"
+                                Value="Y" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
             </Grid>
         </ScrollViewer>
         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
@@ -94,6 +119,7 @@
             <Image Name="NextTile" Height="100" Width="100" Source="{x:Bind Path=ViewModel.NextTile.ImageSource, Mode=OneWay}" Stretch="Fill" Margin="0,10,0,10" />
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0" Width="75" Height="75" Foreground="Green" Background="White" Content="&#xE73E;" FontSize="64" FontFamily="Segoe MDL2 Assets" />
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Name="ResetButton" Click="{x:Bind Path=ViewModel.ResetGame}" Margin="0,10,0,0" Content="&#xE72C;" Width="75" Height="75" FontSize="48" FontFamily="Segoe MDL2 Assets" />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="{x:Bind Path=ViewModel.FollowerPlacement}" Width="75" Height="75" Margin="0,10,0,0" FontSize="48" FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;" />
         </StackPanel>
     </Grid>
 </UserControl>

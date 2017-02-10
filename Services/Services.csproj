@@ -110,7 +110,9 @@
     <Compile Include="Direction.cs" />
     <Compile Include="EdgeTypes.cs" />
     <Compile Include="FitProperties.cs" />
+    <Compile Include="FollowerPlacesConfig.cs" />
     <Compile Include="ITilesService.cs" />
+    <Compile Include="FollowerPoint.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rotation.cs" />

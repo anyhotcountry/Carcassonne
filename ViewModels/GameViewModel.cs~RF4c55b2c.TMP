@@ -22,8 +22,6 @@ namespace Carcassonne.ViewModels
 
         public ObservableCollection<TileViewModel> Possibilities { get; } = new ObservableCollection<TileViewModel>();
 
-        public ObservableCollection<TileViewModel> FollowerPossibilities { get; } = new ObservableCollection<TileViewModel>();
-
         public TileViewModel NextTile
         {
             get { return nextTileViewModel; }
@@ -40,6 +38,7 @@ namespace Carcassonne.ViewModels
             tilesService.PlaceTile(tile, selectedPossibility);
             Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
             NextTile.ImageSource = null;
+            tile = null;
             selectedPossibility = null;
             Possibilities.Clear();
         }
@@ -84,20 +83,6 @@ namespace Carcassonne.ViewModels
 
         public void FollowerPlacement()
         {
-            if (tile == null)
-            {
-                return;
-            }
-
-            FollowerPossibilities.Clear();
-
-            var followerLocations = tile.GetFollowers(selectedPossibility);
-            foreach (var location in followerLocations)
-            {
-                FollowerPossibilities.Add(new TileViewModel(100 * tile.X + 1042 + location.X * 30, 1042 - 100 * tile.Y - location.Y * 30));
-            }
-
-            tile = null;
         }
 
         private void TryTile(IList<FitProperties> possibilities, TileViewModel tileViewModel)
