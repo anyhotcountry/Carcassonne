@@ -40,13 +40,13 @@ namespace Carcassonne.ViewModels
             tilesService.PlaceTile(tile, selectedPossibility);
             Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
             NextTile.ImageSource = null;
-            selectedPossibility = null;
             Possibilities.Clear();
         }
 
         public async Task Start()
         {
             await tilesService.LoadTiles();
+            ResetGame();
         }
 
         public async void ResetGame()
@@ -54,13 +54,18 @@ namespace Carcassonne.ViewModels
             await tilesService.Reset();
             Tiles.Clear();
             Possibilities.Clear();
+            FollowerPossibilities.Clear();
             selectedPossibility = null;
             tile = null;
-            NextTile.ImageSource = null;
+            if (NextTile != null)
+            {
+                NextTile.ImageSource = null;
+            }
         }
 
         public void GetNextTile()
         {
+            FollowerPossibilities.Clear();
             if (tile != null)
             {
                 return;
@@ -73,6 +78,7 @@ namespace Carcassonne.ViewModels
                 return;
             }
 
+            selectedPossibility = null;
             var possibilities = tilesService.GetPossibilities(tile).ToList();
             foreach (var group in possibilities.GroupBy(x => x.Point))
             {
@@ -84,9 +90,14 @@ namespace Carcassonne.ViewModels
 
         public void FollowerPlacement()
         {
-            if (tile == null)
+            if (tile == null || selectedPossibility == null)
             {
                 return;
+            }
+
+            if (Possibilities.Any())
+            {
+                PlaceTile();
             }
 
             FollowerPossibilities.Clear();
@@ -94,7 +105,7 @@ namespace Carcassonne.ViewModels
             var followerLocations = tile.GetFollowers(selectedPossibility);
             foreach (var location in followerLocations)
             {
-                FollowerPossibilities.Add(new TileViewModel(100 * tile.X + 1042 + location.X * 30, 1042 - 100 * tile.Y - location.Y * 30));
+                FollowerPossibilities.Add(new TileViewModel(100 * tile.X + 1042 + location.X * 50, 1042 - 100 * tile.Y - location.Y * 50));
             }
 
             tile = null;

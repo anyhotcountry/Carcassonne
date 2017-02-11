@@ -11,5 +11,10 @@ namespace Carcassonne.Views
         }
 
         public GameViewModel ViewModel => (DataContext as GameViewModel);
+
+        private void UserControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            TilesScrollViewer.ChangeView(1000, 500, 1);
+        }
     }
 }

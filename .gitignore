@@ -5,3 +5,4 @@ obj
 null
 AppPackages
 BundleArtifacts
+*.svg

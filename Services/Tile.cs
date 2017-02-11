@@ -7,13 +7,15 @@ namespace Carcassonne.Services
     public class Tile : Space
     {
         private readonly IList<EdgeTypes> edges;
+        private readonly IList<FollowerPoint> followerPositions;
 
-        public Tile(int pennants, int cloisters, IList<EdgeTypes> edges, Uri imageUri)
+        public Tile(int pennants, int cloisters, IList<EdgeTypes> edges, Uri imageUri, IList<FollowerPoint> followerPositions)
         {
             ImageUri = imageUri;
             Pennants = pennants;
             Cloisters = cloisters;
             this.edges = edges.Concat(edges).ToList();
+            this.followerPositions = followerPositions;
         }
 
         public EdgeTypes GetEdge(Direction direction, Rotation rotation)
@@ -34,56 +36,10 @@ namespace Carcassonne.Services
 
         public Uri ImageUri { get; }
 
-        public IEnumerable<Point> GetFollowers(FitProperties selectedPossibility)
+        public IEnumerable<FollowerPoint> GetFollowers(FitProperties selectedPossibility)
         {
-            if (GetEdge(Direction.North) == EdgeTypes.City)
-            {
-                yield return new Point(0, 1);
-            }
-            if (GetEdge(Direction.East) == EdgeTypes.City)
-            {
-                yield return new Point(1, 0);
-            }
-            if (GetEdge(Direction.South) == EdgeTypes.City)
-            {
-                yield return new Point(0, -1);
-            }
-            if (GetEdge(Direction.West) == EdgeTypes.City)
-            {
-                yield return new Point(-1, 0);
-            }
-            if (GetEdge(Direction.North) == EdgeTypes.Road)
-            {
-                yield return new Point(0, 1);
-            }
-            if (GetEdge(Direction.East) == EdgeTypes.Road)
-            {
-                yield return new Point(1, 0);
-            }
-            if (GetEdge(Direction.South) == EdgeTypes.Road)
-            {
-                yield return new Point(0, -1);
-            }
-            if (GetEdge(Direction.West) == EdgeTypes.Road)
-            {
-                yield return new Point(-1, 0);
-            }
-            if (GetEdge(Direction.North) == EdgeTypes.Field)
-            {
-                yield return new Point(0, 1);
-            }
-            if (GetEdge(Direction.East) == EdgeTypes.Field)
-            {
-                yield return new Point(1, 0);
-            }
-            if (GetEdge(Direction.South) == EdgeTypes.Field)
-            {
-                yield return new Point(0, -1);
-            }
-            if (GetEdge(Direction.West) == EdgeTypes.Field)
-            {
-                yield return new Point(-1, 0);
-            }
+            var angle = 0.5 * Math.PI * (4.0 - (int)selectedPossibility.Rotation);
+            return followerPositions.Select(p => new FollowerPoint(Math.Cos(angle) * p.X + Math.Sin(angle) * p.Y, Math.Cos(angle) * p.Y - Math.Sin(angle) * p.X, p.EdgeType));
         }
     }
 }

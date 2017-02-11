@@ -127,12 +127,14 @@ namespace Carcassonne.Services
             var cloisters = int.Parse(file.Name[7].ToString());
             for (int i = 0; i < count; i++)
             {
-                yield return new Tile(pennants, cloisters, edges, new Uri(baseUri, file.Name));
+                var followerPositions = FollowerPlacesConfig.Positions[file.DisplayName];
+                yield return new Tile(pennants, cloisters, edges, new Uri(baseUri, file.Name), followerPositions);
             }
 
             if (file.DisplayName == StartTileName)
             {
-                startTile = new Tile(pennants, cloisters, edges, new Uri(baseUri, file.Name));
+                var followerPositions = FollowerPlacesConfig.Positions[file.DisplayName];
+                startTile = new Tile(pennants, cloisters, edges, new Uri(baseUri, file.Name), followerPositions);
             }
         }
     }

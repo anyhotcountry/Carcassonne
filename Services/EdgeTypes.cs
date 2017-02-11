@@ -5,6 +5,7 @@
         City,
         Road,
         Field,
-        Water
+        Water,
+        Cloister
     }
 }

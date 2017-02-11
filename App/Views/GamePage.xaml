@@ -9,7 +9,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Carcassonne.ViewModels"
       xmlns:services="using:Carcassonne.Services"
-      mc:Ignorable="d">
+      mc:Ignorable="d" Loaded="UserControl_Loaded">
 
     <UserControl.Resources>
         <helpers:BooleanToVisibilityConverter x:Key="TrueToVisibleConverter" />
@@ -96,7 +96,11 @@
                         <DataTemplate x:DataType="vm:TileViewModel">
                             <Button BorderThickness="0" ClickMode="Press" Padding="0">
                                 <Viewbox MaxHeight="16" MaxWidth="16">
-                                    <SymbolIcon Symbol="Emoji" />
+                                    <Path Stroke="Black"
+                                      StrokeThickness="5" StrokeDashArray="1"
+                                      Data="M99.992,43.019c0.578-13.757-32.354-20.455-33.781-22.023  C65.5,20.216,67.861-0.015,50,0C32.139-0.015,34.499,20.216,33.788,20.996c-1.427,1.568-34.357,8.266-33.78,22.023  c0.576,13.758,18.051,6.692,21.778,10.741c3.26,3.544-15.279,26.229-17.353,40.634C3.757,99.089,5.077,100,9.64,100  c8.276,0,16.177-0.005,23.453-0.005c3.287,0,4.456-1.889,6.152-4.492C42.999,89.741,47.533,80.479,50,80.48  c2.466-0.001,7.001,9.261,10.755,15.022c1.696,2.604,2.864,4.492,6.151,4.492c7.275,0,15.177,0.005,23.453,0.005  c4.563,0,5.884-0.911,5.207-5.606c-2.073-14.405-20.611-37.09-17.353-40.634C81.94,49.711,99.417,56.777,99.992,43.019z" Fill="Lime">
+                                    </Path>
+                                    <!--<SymbolIcon Symbol="Emoji" />-->
                                 </Viewbox>
                             </Button>
                         </DataTemplate>
@@ -117,8 +121,8 @@
                 <Image Height="100" Width="100" Source="../Assets/TILE_BACK.png" Stretch="Fill" />
             </Button>
             <Image Name="NextTile" Height="100" Width="100" Source="{x:Bind Path=ViewModel.NextTile.ImageSource, Mode=OneWay}" Stretch="Fill" Margin="0,10,0,10" />
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0" Width="75" Height="75" Foreground="Green" Background="White" Content="&#xE73E;" FontSize="64" FontFamily="Segoe MDL2 Assets" />
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Name="ResetButton" Click="{x:Bind Path=ViewModel.ResetGame}" Margin="0,10,0,0" Content="&#xE72C;" Width="75" Height="75" FontSize="48" FontFamily="Segoe MDL2 Assets" />
+            <!--<Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="{x:Bind Path=ViewModel.PlaceTile}" BorderThickness="0" Width="75" Height="75" Foreground="Green" Background="White" Content="&#xE73E;" FontSize="64" FontFamily="Segoe MDL2 Assets" />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Name="ResetButton" Click="{x:Bind Path=ViewModel.ResetGame}" Margin="0,10,0,0" Content="&#xE72C;" Width="75" Height="75" FontSize="48" FontFamily="Segoe MDL2 Assets" />-->
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="{x:Bind Path=ViewModel.FollowerPlacement}" Width="75" Height="75" Margin="0,10,0,0" FontSize="48" FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;" />
         </StackPanel>
     </Grid>
