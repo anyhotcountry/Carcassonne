@@ -9,10 +9,10 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" x:Name="GameButton" Click="GameButton_Click">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" x:Name="GameButton" Click="GameButtonOnClick">
                 <Image Height="200" Width="200" Source="../Assets/Tiles/04crfr00.png" Stretch="Fill" />
             </Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" Content="Demo" />
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" Content="Demo" Click="DemoButtonOnClick" />
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" Content="Tile Designer" />
         </StackPanel>
     </Grid>

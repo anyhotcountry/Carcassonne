@@ -1,0 +1,68 @@
+<Page x:Class="Carcassonne.Views.DemoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:Carcassonne.Views"
+      xmlns:helpers="using:Carcassonne.Helpers"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:Carcassonne.ViewModels"
+      mc:Ignorable="d" Loaded="PageOnLoaded">
+
+    <Page.DataContext>
+        <Binding Path="DemoViewModel" Source="{StaticResource Locator}" />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <helpers:BooleanToVisibilityConverter x:Key="TrueToVisibleConverter" />
+        <helpers:BooleanToVisibilityConverter x:Key="FalseToVisibleConverter" IsReversed="True" />
+        <helpers:PositionConverter x:Key="PositionConverter" />
+        <helpers:RotationConverter x:Key="RotationConverter" />
+    </Page.Resources>
+
+    <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Column="0" Grid.Row="0" x:Name="TilesScrollViewer" ZoomMode="Enabled" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinZoomFactor="0.1" MaxZoomFactor="5" ManipulationMode="All" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" BringIntoViewOnFocusChange="True">
+            <Grid x:Name="BoardGrid">
+                <ItemsControl ItemsSource="{x:Bind Path=ViewModel.Tiles}"
+                          x:Name="ItemsControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas Width="2000" Height="2000" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:TileViewModel">
+                            <Image Height="100"
+                                   Width="100"
+                                   Source="{x:Bind Path=ImageSource}" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <RotateTransform Angle="{x:Bind Path=Rotation, Converter={StaticResource RotationConverter}}" />
+                                </Image.RenderTransform>
+                            </Image>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="helpers:BindingHelper.CanvasLeftBindingPath"
+                                Value="X" />
+                            <Setter Property="helpers:BindingHelper.CanvasTopBindingPath"
+                                Value="Y" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <Button Content="Screenshot" Click="ButtonOnClick">
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

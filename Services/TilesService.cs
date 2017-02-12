@@ -65,10 +65,13 @@ namespace Carcassonne.Services
 
         public async Task Reset()
         {
-            remainingTiles = remainingTiles.Concat(playedTiles).OrderBy(x => Guid.NewGuid()).ToList();
-            playedTiles.Clear();
-            spaces.Clear();
-            counter = -1;
+            if (remainingTiles != null)
+            {
+                remainingTiles = remainingTiles.Concat(playedTiles).OrderBy(x => Guid.NewGuid()).ToList();
+                playedTiles.Clear();
+                spaces.Clear();
+                counter = -1;
+            }
         }
 
         public void PlaceTile(Tile tile, FitProperties properties)

@@ -7,9 +7,14 @@
             InitializeComponent();
         }
 
-        private void GameButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void GameButtonOnClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Frame.Navigate(typeof(WrapperPage));
+        }
+
+        private void DemoButtonOnClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(DemoPage));
         }
     }
 }
