@@ -66,7 +66,7 @@ namespace Carcassonne.ViewModels
         public void GetNextTile()
         {
             FollowerPossibilities.Clear();
-            if (tile != null)
+            if (tile != null && Possibilities.Any())
             {
                 return;
             }

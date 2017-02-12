@@ -14,7 +14,7 @@ namespace Carcassonne.Views
 
         private void UserControl_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            TilesScrollViewer.ChangeView(1000, 500, 1);
+            TilesScrollViewer.ChangeView(300, 600, 1);
         }
     }
 }
