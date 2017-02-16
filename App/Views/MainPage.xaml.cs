@@ -16,5 +16,10 @@
         {
             Frame.Navigate(typeof(DemoPage));
         }
+
+        private void DesignerButtonOnClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(DesignerPage));
+        }
     }
 }

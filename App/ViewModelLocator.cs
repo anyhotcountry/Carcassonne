@@ -21,5 +21,13 @@ namespace Carcassonne
                 return new DemoViewModel(new TilesService(new Uri("ms-appx:///Assets/Tiles/")));
             }
         }
+
+        public DesignerViewModel DesignerViewModel
+        {
+            get
+            {
+                return new DesignerViewModel(new Uri("ms-appdata:///local/Tiles"), new TileDesignerService());
+            }
+        }
     }
 }

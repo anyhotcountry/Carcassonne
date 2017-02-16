@@ -111,6 +111,7 @@
     <Compile Include="EdgeTypes.cs" />
     <Compile Include="FitProperties.cs" />
     <Compile Include="FollowerPlacesConfig.cs" />
+    <Compile Include="ITileDesignerService.cs" />
     <Compile Include="ITilesService.cs" />
     <Compile Include="FollowerPoint.cs" />
     <Compile Include="Point.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Rotation.cs" />
     <Compile Include="Space.cs" />
     <Compile Include="Tile.cs" />
+    <Compile Include="TileDesignerService.cs" />
     <Compile Include="TilesService.cs" />
     <Content Include="Properties\Services.rd.xml" />
   </ItemGroup>
