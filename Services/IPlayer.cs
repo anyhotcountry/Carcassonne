@@ -7,5 +7,7 @@ namespace Carcassonne.Services
         bool IsInteractive { get; }
 
         Color Colour { get; }
+
+        int FollowersCount { get; set; }
     }
 }

@@ -59,6 +59,13 @@ namespace Carcassonne.ViewModels
 
             FollowerPossibilities.Clear();
 
+            if (currentPlayer.FollowersCount == 0)
+            {
+                tile = null;
+                CurrentColour = null;
+                return;
+            }
+
             var followerLocations = tile.GetFollowers(selectedPossibility);
             foreach (var location in followerLocations)
             {
@@ -82,6 +89,7 @@ namespace Carcassonne.ViewModels
             if (follower != null)
             {
                 Followers.Add(follower);
+                currentPlayer.FollowersCount--;
             }
 
             FollowerPossibilities.Clear();
@@ -109,10 +117,11 @@ namespace Carcassonne.ViewModels
                     await Task.Delay(1000);
                     Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, tile.Rotation, tile.ImageUri));
                     var followerLocation = tile.GetFollowers(possibility).OrderBy(x => Guid.NewGuid()).FirstOrDefault();
-                    if (followerLocation != null)
+                    if (followerLocation != null && currentPlayer.FollowersCount > 0)
                     {
                         var followerViewModel = new FollowerViewModel(100 * tile.X + 1042 + followerLocation.X * 50, 1042 - 100 * tile.Y - followerLocation.Y * 50, currentPlayer.Colour);
                         Followers.Add(followerViewModel);
+                        currentPlayer.FollowersCount--;
                     }
                 }
 

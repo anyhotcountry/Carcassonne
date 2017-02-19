@@ -7,5 +7,7 @@ namespace Carcassonne.Services
         public bool IsInteractive => true;
 
         public Color Colour => Colors.Blue;
+
+        public int FollowersCount { get; set; } = 7;
     }
 }
