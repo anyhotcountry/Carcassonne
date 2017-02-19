@@ -1,4 +1,5 @@
 using Carcassonne.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -70,7 +71,7 @@ namespace Carcassonne.ViewModels
             tile = null;
         }
 
-        public void GetNextTile()
+        public async Task GetNextTile()
         {
             if (tile != null && Possibilities.Any())
             {
@@ -98,6 +99,29 @@ namespace Carcassonne.ViewModels
 
             selectedPossibility = null;
             var possibilities = tilesService.GetPossibilities(tile).ToList();
+
+            if (!currentPlayer.IsInteractive)
+            {
+                var possibility = possibilities.OrderByDescending(x => x.Score).FirstOrDefault();
+                if (possibility != null)
+                {
+                    tilesService.PlaceTile(tile, possibility);
+                    await Task.Delay(1000);
+                    Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, tile.Rotation, tile.ImageUri));
+                    var followerLocation = tile.GetFollowers(possibility).OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+                    if (followerLocation != null)
+                    {
+                        var followerViewModel = new FollowerViewModel(100 * tile.X + 1042 + followerLocation.X * 50, 1042 - 100 * tile.Y - followerLocation.Y * 50, currentPlayer.Colour);
+                        Followers.Add(followerViewModel);
+                    }
+                }
+
+                await Task.Delay(1000);
+                tile = null;
+                await GetNextTile();
+                return;
+            }
+
             foreach (var group in possibilities.GroupBy(x => x.Point))
             {
                 var vm = new TileViewModel(100 * group.Key.X + 1000, 1000 - 100 * group.Key.Y);
@@ -119,14 +143,17 @@ namespace Carcassonne.ViewModels
             Possibilities.Clear();
         }
 
-        public async void ResetGame()
+        public async Task ResetGame()
         {
             await tilesService.Reset();
             Tiles.Clear();
             Possibilities.Clear();
             FollowerPossibilities.Clear();
+            Followers.Clear();
             selectedPossibility = null;
             tile = null;
+            playerIndex = 0;
+            CurrentColour = null;
             if (NextTile != null)
             {
                 NextTile.ImageSource = null;
@@ -136,7 +163,7 @@ namespace Carcassonne.ViewModels
         public async Task Start()
         {
             await tilesService.LoadTiles();
-            ResetGame();
+            await ResetGame();
         }
 
         private void OnFollowerClick(FollowerViewModel followerViewModel)

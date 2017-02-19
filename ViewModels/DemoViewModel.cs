@@ -33,7 +33,7 @@ namespace Carcassonne.ViewModels
             }
 
             var possibilities = tilesService.GetPossibilities(tile).ToList();
-            var possibility = possibilities.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+            var possibility = possibilities.OrderByDescending(x => x.Score).FirstOrDefault();
             if (possibility != null)
             {
                 tilesService.PlaceTile(tile, possibility);
