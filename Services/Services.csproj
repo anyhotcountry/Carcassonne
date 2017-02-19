@@ -107,10 +107,13 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComputerPlayer.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="EdgeTypes.cs" />
     <Compile Include="FitProperties.cs" />
     <Compile Include="FollowerPlacesConfig.cs" />
+    <Compile Include="HumanPlayer.cs" />
+    <Compile Include="IPlayer.cs" />
     <Compile Include="ITilesService.cs" />
     <Compile Include="FollowerPoint.cs" />
     <Compile Include="Point.cs" />

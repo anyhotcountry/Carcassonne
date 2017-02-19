@@ -3,24 +3,32 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media;
 
 namespace Carcassonne.ViewModels
 {
     public class GameViewModel : Mvvm.ViewModelBase
     {
+        private readonly IList<IPlayer> players;
         private readonly ITilesService tilesService;
+        private Brush currentColour;
+        private IPlayer currentPlayer;
         private TileViewModel nextTileViewModel;
-        private Tile tile;
+        private int playerIndex;
         private FitProperties selectedPossibility;
+        private Tile tile;
 
-        public GameViewModel(ITilesService tilesService)
+        public GameViewModel(ITilesService tilesService, IList<IPlayer> players)
         {
+            this.players = players;
             this.tilesService = tilesService;
         }
 
-        public ObservableCollection<TileViewModel> Tiles { get; } = new ObservableCollection<TileViewModel>();
-
-        public ObservableCollection<TileViewModel> Possibilities { get; } = new ObservableCollection<TileViewModel>();
+        public Brush CurrentColour
+        {
+            get { return currentColour; }
+            set { Set(ref currentColour, value); }
+        }
 
         public ObservableCollection<FollowerViewModel> FollowerPossibilities { get; } = new ObservableCollection<FollowerViewModel>();
 
@@ -32,69 +40,9 @@ namespace Carcassonne.ViewModels
             set { Set(ref nextTileViewModel, value); }
         }
 
-        public void PlaceTile()
-        {
-            if (selectedPossibility == null || tile == null)
-            {
-                return;
-            }
+        public ObservableCollection<TileViewModel> Possibilities { get; } = new ObservableCollection<TileViewModel>();
 
-            tilesService.PlaceTile(tile, selectedPossibility);
-            Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
-            NextTile.ImageSource = null;
-            Possibilities.Clear();
-        }
-
-        public async Task Start()
-        {
-            await tilesService.LoadTiles();
-            ResetGame();
-        }
-
-        public async void ResetGame()
-        {
-            await tilesService.Reset();
-            Tiles.Clear();
-            Possibilities.Clear();
-            FollowerPossibilities.Clear();
-            selectedPossibility = null;
-            tile = null;
-            if (NextTile != null)
-            {
-                NextTile.ImageSource = null;
-            }
-        }
-
-        public void GetNextTile()
-        {
-            var follower = FollowerPossibilities.FirstOrDefault(f => f.IsSelected);
-            if (follower != null)
-            {
-                Followers.Add(follower);
-            }
-
-            FollowerPossibilities.Clear();
-            if (tile != null && Possibilities.Any())
-            {
-                return;
-            }
-
-            tile = tilesService.NextTile();
-            NextTile = tile == null ? null : new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, tile.Rotation, tile.ImageUri);
-            if (tile == null)
-            {
-                return;
-            }
-
-            selectedPossibility = null;
-            var possibilities = tilesService.GetPossibilities(tile).ToList();
-            foreach (var group in possibilities.GroupBy(x => x.Point))
-            {
-                var vm = new TileViewModel(100 * group.Key.X + 1000, 1000 - 100 * group.Key.Y);
-                vm.ClickCommand = new DelegateCommand(() => TryTile(group.ToList(), vm));
-                Possibilities.Add(vm);
-            }
-        }
+        public ObservableCollection<TileViewModel> Tiles { get; } = new ObservableCollection<TileViewModel>();
 
         public void FollowerPlacement()
         {
@@ -113,13 +61,82 @@ namespace Carcassonne.ViewModels
             var followerLocations = tile.GetFollowers(selectedPossibility);
             foreach (var location in followerLocations)
             {
-                var followerViewModel = new FollowerViewModel(100 * tile.X + 1042 + location.X * 50, 1042 - 100 * tile.Y - location.Y * 50);
+                var followerViewModel = new FollowerViewModel(100 * tile.X + 1042 + location.X * 50, 1042 - 100 * tile.Y - location.Y * 50, currentPlayer.Colour);
                 var clickCommand = new DelegateCommand(() => OnFollowerClick(followerViewModel));
                 followerViewModel.ClickCommand = clickCommand;
                 FollowerPossibilities.Add(followerViewModel);
             }
 
             tile = null;
+        }
+
+        public void GetNextTile()
+        {
+            if (tile != null && Possibilities.Any())
+            {
+                return;
+            }
+
+            var follower = FollowerPossibilities.FirstOrDefault(f => f.IsSelected);
+            if (follower != null)
+            {
+                Followers.Add(follower);
+            }
+
+            FollowerPossibilities.Clear();
+
+            currentPlayer = players[playerIndex];
+            CurrentColour = new SolidColorBrush(currentPlayer.Colour);
+            playerIndex = playerIndex >= players.Count - 1 ? 0 : playerIndex + 1;
+
+            tile = tilesService.NextTile();
+            NextTile = tile == null ? null : new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, tile.Rotation, tile.ImageUri);
+            if (tile == null)
+            {
+                return;
+            }
+
+            selectedPossibility = null;
+            var possibilities = tilesService.GetPossibilities(tile).ToList();
+            foreach (var group in possibilities.GroupBy(x => x.Point))
+            {
+                var vm = new TileViewModel(100 * group.Key.X + 1000, 1000 - 100 * group.Key.Y);
+                vm.ClickCommand = new DelegateCommand(() => TryTile(group.ToList(), vm));
+                Possibilities.Add(vm);
+            }
+        }
+
+        public void PlaceTile()
+        {
+            if (selectedPossibility == null || tile == null)
+            {
+                return;
+            }
+
+            tilesService.PlaceTile(tile, selectedPossibility);
+            Tiles.Add(new TileViewModel(100 * tile.X + 1000, 1000 - 100 * tile.Y, selectedPossibility.Rotation, tile.ImageUri));
+            NextTile.ImageSource = null;
+            Possibilities.Clear();
+        }
+
+        public async void ResetGame()
+        {
+            await tilesService.Reset();
+            Tiles.Clear();
+            Possibilities.Clear();
+            FollowerPossibilities.Clear();
+            selectedPossibility = null;
+            tile = null;
+            if (NextTile != null)
+            {
+                NextTile.ImageSource = null;
+            }
+        }
+
+        public async Task Start()
+        {
+            await tilesService.LoadTiles();
+            ResetGame();
         }
 
         private void OnFollowerClick(FollowerViewModel followerViewModel)

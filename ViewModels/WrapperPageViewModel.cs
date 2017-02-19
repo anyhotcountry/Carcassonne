@@ -15,7 +15,7 @@ namespace Carcassonne.ViewModels
         {
             this.tilesService = tilesService;
             dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
-            CurrentViewModel = new GameViewModel(tilesService);
+            CurrentViewModel = new GameViewModel(tilesService, new IPlayer[] { new HumanPlayer(), new ComputerPlayer() });
         }
 
         public async Task Start()
