@@ -112,6 +112,7 @@
     <Compile Include="DemoViewModel.cs" />
     <Compile Include="GameViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FollowerViewModel.cs" />
     <Compile Include="TileViewModel.cs" />
     <Compile Include="WrapperPageViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />

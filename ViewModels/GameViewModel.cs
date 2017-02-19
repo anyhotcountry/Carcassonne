@@ -22,7 +22,9 @@ namespace Carcassonne.ViewModels
 
         public ObservableCollection<TileViewModel> Possibilities { get; } = new ObservableCollection<TileViewModel>();
 
-        public ObservableCollection<TileViewModel> FollowerPossibilities { get; } = new ObservableCollection<TileViewModel>();
+        public ObservableCollection<FollowerViewModel> FollowerPossibilities { get; } = new ObservableCollection<FollowerViewModel>();
+
+        public ObservableCollection<FollowerViewModel> Followers { get; } = new ObservableCollection<FollowerViewModel>();
 
         public TileViewModel NextTile
         {
@@ -65,6 +67,12 @@ namespace Carcassonne.ViewModels
 
         public void GetNextTile()
         {
+            var follower = FollowerPossibilities.FirstOrDefault(f => f.IsSelected);
+            if (follower != null)
+            {
+                Followers.Add(follower);
+            }
+
             FollowerPossibilities.Clear();
             if (tile != null && Possibilities.Any())
             {
@@ -105,10 +113,21 @@ namespace Carcassonne.ViewModels
             var followerLocations = tile.GetFollowers(selectedPossibility);
             foreach (var location in followerLocations)
             {
-                FollowerPossibilities.Add(new TileViewModel(100 * tile.X + 1042 + location.X * 50, 1042 - 100 * tile.Y - location.Y * 50));
+                var followerViewModel = new FollowerViewModel(100 * tile.X + 1042 + location.X * 50, 1042 - 100 * tile.Y - location.Y * 50);
+                var clickCommand = new DelegateCommand(() => OnFollowerClick(followerViewModel));
+                followerViewModel.ClickCommand = clickCommand;
+                FollowerPossibilities.Add(followerViewModel);
             }
 
             tile = null;
+        }
+
+        private void OnFollowerClick(FollowerViewModel followerViewModel)
+        {
+            foreach (var vm in FollowerPossibilities)
+            {
+                vm.IsSelected = vm == followerViewModel ? !vm.IsSelected : false;
+            }
         }
 
         private void TryTile(IList<FitProperties> possibilities, TileViewModel tileViewModel)
