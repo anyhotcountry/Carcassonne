@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Carcassonne.Services.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +13,12 @@ namespace Carcassonne.Services
     {
         private const string StartTileName = "04crfr00";
 
-        private static readonly IDictionary<char, EdgeTypes> Edges = new Dictionary<char, EdgeTypes>
+        private static readonly IDictionary<char, FeatureTypes> Edges = new Dictionary<char, FeatureTypes>
         {
-            ['c'] = EdgeTypes.City,
-            ['f'] = EdgeTypes.Field,
-            ['r'] = EdgeTypes.Road,
-            ['w'] = EdgeTypes.Water,
+            ['c'] = FeatureTypes.City,
+            ['f'] = FeatureTypes.Field,
+            ['r'] = FeatureTypes.Road,
+            ['w'] = FeatureTypes.Water,
         };
 
         private readonly Uri baseUri;
@@ -25,6 +27,7 @@ namespace Carcassonne.Services
         private List<Tile> playedTiles;
         private Tile startTile;
         private int counter;
+        private IEnumerable<TileDefinition> tileDefinitions;
 
         public TilesService(Uri baseUri)
         {
@@ -33,10 +36,12 @@ namespace Carcassonne.Services
 
         public async Task LoadTiles()
         {
-            var appInstalledFolder = Package.Current.InstalledLocation;
-            var assets = await appInstalledFolder.GetFolderAsync(@"Assets\Tiles");
-            var files = await assets.GetFilesAsync();
-            remainingTiles = files.SelectMany(Parse).OrderBy(x => Guid.NewGuid()).ToList();
+            var assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            var tilesFile = await assetsFolder.GetFileAsync("tiles.json");
+            var json = await FileIO.ReadTextAsync(tilesFile);
+            tileDefinitions = await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<IEnumerable<TileDefinition>>(json));
+            remainingTiles = tileDefinitions.SelectMany(d => Enumerable.Repeat(0, d.Count).Select(x => new Tile(d.Pennants, d.Cloisters, d.Edges, new Uri(baseUri, d.Filename), d.Followers))).ToList();
+            startTile = tileDefinitions.Where(d => d.IsStarting).Select(d => new Tile(d.Pennants, d.Cloisters, d.Edges, new Uri(baseUri, d.Filename), d.Followers)).First();
             counter = -1;
             playedTiles = new List<Tile>();
             spaces = new List<Space>();
@@ -68,6 +73,7 @@ namespace Carcassonne.Services
             if (remainingTiles != null)
             {
                 remainingTiles = remainingTiles.Concat(playedTiles).OrderBy(x => Guid.NewGuid()).ToList();
+                await Task.Yield();
                 playedTiles.Clear();
                 spaces.Clear();
                 counter = -1;
@@ -119,25 +125,6 @@ namespace Carcassonne.Services
             if (spaceToRemove != null)
             {
                 spaces.Remove(spaceToRemove);
-            }
-        }
-
-        private IEnumerable<Tile> Parse(StorageFile file)
-        {
-            var count = int.Parse(file.Name.Substring(0, 2));
-            var edges = file.Name.Skip(2).Take(4).Select(f => Edges[f]).ToList();
-            var pennants = int.Parse(file.Name[6].ToString());
-            var cloisters = int.Parse(file.Name[7].ToString());
-            for (int i = 0; i < count; i++)
-            {
-                var followerPositions = FollowerPlacesConfig.Positions[file.DisplayName];
-                yield return new Tile(pennants, cloisters, edges, new Uri(baseUri, file.Name), followerPositions);
-            }
-
-            if (file.DisplayName == StartTileName)
-            {
-                var followerPositions = FollowerPlacesConfig.Positions[file.DisplayName];
-                startTile = new Tile(pennants, cloisters, edges, new Uri(baseUri, file.Name), followerPositions);
             }
         }
     }

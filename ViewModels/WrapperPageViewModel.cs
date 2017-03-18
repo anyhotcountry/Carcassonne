@@ -8,7 +8,6 @@ namespace Carcassonne.ViewModels
     {
         private readonly CoreDispatcher dispatcher;
         private GameViewModel currentViewModel;
-        private bool stopped = true;
         private ITilesService tilesService;
 
         public WrapperPageViewModel(ITilesService tilesService)

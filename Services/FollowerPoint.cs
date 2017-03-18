@@ -2,7 +2,7 @@
 {
     public class FollowerPoint
     {
-        public FollowerPoint(double x, double y, EdgeTypes edgeType)
+        public FollowerPoint(double x, double y, FeatureTypes edgeType, int targetNumber)
         {
             X = x;
             Y = y;
@@ -13,6 +13,6 @@
 
         public double Y { get; }
 
-        public EdgeTypes EdgeType { get; }
+        public FeatureTypes EdgeType { get; }
     }
 }

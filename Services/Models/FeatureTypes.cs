@@ -1,6 +1,6 @@
 ﻿namespace Carcassonne.Services
 {
-    public enum EdgeTypes
+    public enum FeatureTypes
     {
         City,
         Road,

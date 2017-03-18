@@ -46,12 +46,12 @@ namespace Carcassonne.ViewModels
         public async Task Load()
         {
             await tilesService.LoadTiles();
+            Reset();
+            gameTimer.Start();
         }
 
         public void Start()
         {
-            Reset();
-            gameTimer.Start();
         }
 
         public void Stop()

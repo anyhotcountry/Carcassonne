@@ -6,3 +6,4 @@ null
 AppPackages
 BundleArtifacts
 *.svg
+*.lock.json

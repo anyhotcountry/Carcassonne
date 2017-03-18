@@ -1,0 +1,1221 @@
+﻿[
+  {
+    "Filename": "cccc0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "City",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 1,
+    "Count": 1,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ccfc0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 1,
+    "Count": 1,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.7,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ccrc0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 1,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.7,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.3,
+        "Y": -0.72,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.4,
+        "Y": -0.72,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ccrc1.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 1,
+    "Count": 1,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.7,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.3,
+        "Y": -0.72,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.4,
+        "Y": -0.72,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "fcfc0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Field",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 1,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.74,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.84,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "rrrr0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Road",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 1,
+    "Followers": [
+      {
+        "X": -0.52,
+        "Y": 0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.6,
+        "Y": 0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.52,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.6,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.14,
+        "Y": 0.66,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": 0,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.68,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.68,
+        "Y": 0,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "cffc0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 2,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.88,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.8,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "cffc1.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 1,
+    "Count": 2,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": 0.6,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "crrc0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 1,
+    "Count": 2,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.36,
+        "Y": -0.48,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": 0.6,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.64,
+        "Y": -0.64,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "fcfc1.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Field",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 1,
+    "Count": 2,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.74,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.84,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ffrf0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Field",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 1,
+    "Pennants": 0,
+    "Count": 2,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Cloister",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.6,
+        "Y": 0.48,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.68,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ccfc1.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "City",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.7,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "cfcf0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "City",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.72,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.76,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "cffc2.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": -0.6,
+        "Y": 0.6,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "cfrr0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.84,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.26,
+        "Y": -0.32,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "crrc1.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.36,
+        "Y": -0.48,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": 0.6,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.64,
+        "Y": -0.64,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "crrf0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.84,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.28,
+        "Y": -0.2,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.56,
+        "Y": -0.56,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "crrr0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 3,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0.76,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.08,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.68,
+        "Y": -0.06,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.72,
+        "Y": -0.14,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.6,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.8,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "crfr0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 4,
+    "IsStarting": true,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.84,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.2,
+        "Y": 0.2,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.5,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ffff0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Field",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 1,
+    "Pennants": 0,
+    "Count": 4,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Cloister",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.54,
+        "Y": -0.54,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "frrr0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Field",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Road",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 4,
+    "Followers": [
+      {
+        "X": -0.68,
+        "Y": -0.06,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.72,
+        "Y": -0.14,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.6,
+        "Y": -0.6,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": -0.8,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.6,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "cfff0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "City",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Field",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 5,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0,
+        "Y": 0.8,
+        "FeatureType": "City",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "rfrf0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Road",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 8,
+    "Followers": [
+      {
+        "X": 0,
+        "Y": 0,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.56,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.6,
+        "Y": 0,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  },
+  {
+    "Filename": "ffrr0.png",
+    "Edges": [
+      {
+        "Direction": "North",
+        "FeatureType": "Field",
+        "FeatureNumber": 3
+      },
+      {
+        "Direction": "East",
+        "FeatureType": "Field",
+        "FeatureNumber": 2
+      },
+      {
+        "Direction": "South",
+        "FeatureType": "Road",
+        "FeatureNumber": 1
+      },
+      {
+        "Direction": "West",
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      }
+    ],
+    "Cloisters": 0,
+    "Pennants": 0,
+    "Count": 9,
+    "Followers": [
+      {
+        "X": -0.06,
+        "Y": -0.02,
+        "FeatureType": "Road",
+        "FeatureNumber": 0
+      },
+      {
+        "X": 0.04,
+        "Y": 0.3,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      },
+      {
+        "X": -0.54,
+        "Y": -0.54,
+        "FeatureType": "Field",
+        "FeatureNumber": 0
+      }
+    ]
+  }
+]

@@ -108,19 +108,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComputerPlayer.cs" />
-    <Compile Include="Direction.cs" />
-    <Compile Include="EdgeTypes.cs" />
+    <Compile Include="Models\Directions.cs" />
+    <Compile Include="Models\FeatureTypes.cs" />
     <Compile Include="FitProperties.cs" />
-    <Compile Include="FollowerPlacesConfig.cs" />
     <Compile Include="HumanPlayer.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="ITilesService.cs" />
-    <Compile Include="FollowerPoint.cs" />
+    <Compile Include="Models\Edge.cs" />
+    <Compile Include="Models\Follower.cs" />
+    <Compile Include="Models\TileDefinition.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rotation.cs" />
     <Compile Include="Space.cs" />
     <Compile Include="Tile.cs" />
+    <Compile Include="TileConfig.cs" />
     <Compile Include="TilesService.cs" />
     <Content Include="Properties\Services.rd.xml" />
   </ItemGroup>

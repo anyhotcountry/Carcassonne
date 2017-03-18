@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Carcassonne.Services.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,10 +7,10 @@ namespace Carcassonne.Services
 {
     public class Tile : Space
     {
-        private readonly IList<EdgeTypes> edges;
-        private readonly IList<FollowerPoint> followerPositions;
+        private readonly IList<Edge> edges;
+        private readonly IList<Follower> followerPositions;
 
-        public Tile(int pennants, int cloisters, IList<EdgeTypes> edges, Uri imageUri, IList<FollowerPoint> followerPositions)
+        public Tile(int pennants, int cloisters, IList<Edge> edges, Uri imageUri, IList<Follower> followerPositions)
         {
             ImageUri = imageUri;
             Pennants = pennants;
@@ -18,12 +19,12 @@ namespace Carcassonne.Services
             this.followerPositions = followerPositions;
         }
 
-        public EdgeTypes GetEdge(Direction direction, Rotation rotation)
+        public Edge GetEdge(Directions direction, Rotation rotation)
         {
             return edges[(int)direction + (int)rotation];
         }
 
-        public EdgeTypes GetEdge(Direction direction)
+        public Edge GetEdge(Directions direction)
         {
             return GetEdge(direction, Rotation);
         }
@@ -36,10 +37,10 @@ namespace Carcassonne.Services
 
         public Uri ImageUri { get; }
 
-        public IEnumerable<FollowerPoint> GetFollowers(FitProperties selectedPossibility)
+        public IEnumerable<Follower> GetFollowers(FitProperties selectedPossibility)
         {
             var angle = 0.5 * Math.PI * (4.0 - (int)selectedPossibility.Rotation);
-            return followerPositions.Select(p => new FollowerPoint(Math.Cos(angle) * p.X + Math.Sin(angle) * p.Y, Math.Cos(angle) * p.Y - Math.Sin(angle) * p.X, p.EdgeType));
+            return followerPositions.Select(p => new Follower(Math.Cos(angle) * p.X + Math.Sin(angle) * p.Y, Math.Cos(angle) * p.Y - Math.Sin(angle) * p.X, p.FeatureType, p.FeatureNumber));
         }
     }
 }
